@@ -16,8 +16,10 @@ Note that for simplicity, the structure presented below is represented as a JSON
     "Command"  : "< GET | RESPONSE | ERROR >",
     "Payload"  : [ "<Content>" ],
     "Options"  : [
+                    {
                     "Option" : "< SORTED | FILTERED >",
-                    "Value"  : "< Ascending | Descending | "Filter Sequence" >"
+                    "Value"  : "< Ascending | Descending | "Filter_Sequence" >"
+                    }
                  ],
     "Format"   : "< JSON | XML >"
 }
@@ -30,8 +32,10 @@ Note that for simplicity, the structure presented below is represented as a JSON
     "Address"      : "<Address>",
     "Port"         : "<Port>",
     "Connections"  : [
+                        {
                         "Address" : "<Address>",
                         "Port"    : "<Port>"
+                        }
                      ]
 }
 ```
