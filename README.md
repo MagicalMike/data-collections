@@ -12,7 +12,9 @@ Visit [Protocol Description](https://github.com/MagicalMike/data-collections/blo
 
 ## Previews
 
-<img src="https://github.com/MagicalMike/data-collections/blob/master/res/client.png" alt="Client" width="30%"/> <https://github.com/MagicalMike/data-collections/blob/master/res/proxy" alt="Proxy" width="30%"/> <https://github.com/MagicalMike/data-collections/blob/master/res/node.png" alt="Node" width="30%"/>
+<img src="https://github.com/MagicalMike/data-collections/blob/master/res/client.png" alt="Client" width="30%"/>
+<img src="https://github.com/MagicalMike/data-collections/blob/master/res/proxy.png" alt="Proxy" width="30%"/>
+<img src="https://github.com/MagicalMike/data-collections/blob/master/res/node.png" alt="Node" width="30%"/>
 
 
 ## Current Progress
