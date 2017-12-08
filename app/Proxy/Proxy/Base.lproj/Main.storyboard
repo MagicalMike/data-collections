@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="XfG-lQ-9wD">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="9TC-Ir-6sI">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13529"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -683,60 +684,168 @@
         <!--Proxy-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController title="Proxy" id="XfG-lQ-9wD" customClass="ViewController" customModule="Proxy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Proxy" id="XfG-lQ-9wD" customClass="ProxyVC" customModule="Proxy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="363" height="171"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lt7-xP-J2c">
-                                <rect key="frame" x="127" y="165" width="228" height="22"/>
+                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="5Rz-P0-007">
+                                <rect key="frame" x="0.0" y="0.0" width="363" height="171"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="IP Address" drawsBackground="YES" id="aH9-Ko-YE7">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nlq-KH-dPc">
-                                <rect key="frame" x="127" y="139" width="228" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Port number" drawsBackground="YES" id="pre-F4-pqn">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IeI-hT-kwx">
-                                <rect key="frame" x="85" y="85" width="310" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Message" drawsBackground="YES" id="Hvf-ql-PXA">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kQ9-Zd-iIi">
-                                <rect key="frame" x="181" y="49" width="119" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Broadcast" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6K4-lC-MRb">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="broadcast:" target="XfG-lQ-9wD" id="xcS-Ov-uMr"/>
-                                </connections>
-                            </button>
+                                <view key="contentView" ambiguous="YES" id="bQc-kL-Kk5">
+                                    <rect key="frame" x="0.0" y="0.0" width="363" height="171"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kqf-cZ-Ypu">
+                                            <rect key="frame" x="111" y="82" width="141" height="69"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Proxy" id="AO9-IH-CJd">
+                                                <font key="font" size="48" name="RingbearerMedium"/>
+                                                <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xWZ-lG-45R">
+                                            <rect key="frame" x="33" y="43" width="296" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Everything seems to be working fine" id="c3W-XT-ykx">
+                                                <font key="font" size="18" name="Avenir-Book"/>
+                                                <color key="textColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                </view>
+                                <color key="fillColor" red="0.17857310579999999" green="0.1814083558" blue="0.2371275907" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </box>
                         </subviews>
                     </view>
-                    <connections>
-                        <outlet property="ipTextfield" destination="lt7-xP-J2c" id="bVo-fy-rT1"/>
-                        <outlet property="messageTextfield" destination="IeI-hT-kwx" id="GhF-9x-Muj"/>
-                        <outlet property="portTextfield" destination="nlq-KH-dPc" id="qoV-hi-W4I"/>
-                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="228"/>
+            <point key="canvasLocation" x="-47" y="316"/>
+        </scene>
+        <!--ConnectVC-->
+        <scene sceneID="v0J-76-Tgz">
+            <objects>
+                <viewController id="9TC-Ir-6sI" customClass="ConnectVC" customModule="Proxy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="7bA-KN-lNy">
+                        <rect key="frame" x="0.0" y="0.0" width="269" height="459"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="UFm-vh-e40">
+                                <rect key="frame" x="0.0" y="0.0" width="269" height="460"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" ambiguous="YES" id="TTg-x2-HEq">
+                                    <rect key="frame" x="0.0" y="0.0" width="269" height="460"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gPi-1n-fqM" customClass="CustomTextfield" customModule="Proxy" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="258" width="229" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="9000" placeholderString="TCP Port" drawsBackground="YES" id="1M6-H8-Npi">
+                                                <font key="font" size="18" name="Avenir-Book"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AH4-CP-Tn7" customClass="CustomTextfield" customModule="Proxy" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="290" width="229" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="127.0.0.1" placeholderString="TCP Address" drawsBackground="YES" id="fb7-Ms-ie1">
+                                                <font key="font" size="18" name="Avenir-Book"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TLl-hl-ztV" customClass="CustomTextfield" customModule="Proxy" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="187" width="229" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="9111" placeholderString="UDP Port" drawsBackground="YES" id="73f-zV-7OR">
+                                                <font key="font" size="18" name="Avenir-Book"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wbg-SC-ybK" customClass="CustomTextfield" customModule="Proxy" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="219" width="229" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="127.0.0.1" placeholderString="UDP Address" drawsBackground="YES" id="0wA-Wb-AN1">
+                                                <font key="font" size="18" name="Avenir-Book"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GMF-SH-Cma">
+                                            <rect key="frame" x="37" y="81" width="194" height="27"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Could not initialize socket" id="j3C-kK-WV5">
+                                                <font key="font" size="16" name="Avenir-Book"/>
+                                                <color key="textColor" name="systemPinkColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XyG-Yx-odG" customClass="CustomTextfield" customModule="Proxy" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="116" width="229" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="9999" placeholderString="Broadcast Port" drawsBackground="YES" id="pbZ-w6-dRi">
+                                                <font key="font" size="18" name="Avenir-Book"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vtg-Z5-ycO" customClass="CustomTextfield" customModule="Proxy" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="148" width="229" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="255.255.255.255" placeholderString="Broadcast IP" drawsBackground="YES" id="Nr5-5i-NV9">
+                                                <font key="font" size="18" name="Avenir-Book"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mxa-0F-yUs">
+                                            <rect key="frame" x="33" y="358" width="204" height="102"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Proxy" id="381-ky-V4W">
+                                                <font key="font" size="70" name="RingbearerMedium"/>
+                                                <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fw0-BJ-Wpt">
+                                            <rect key="frame" x="107" y="18" width="55" height="55"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="turn" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="0Dd-Y7-yjP">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="connectBtnPressed:" target="9TC-Ir-6sI" id="vaX-w0-bu8"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </view>
+                                <color key="fillColor" red="0.17857310580095034" green="0.18140835584737361" blue="0.23712759067357514" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </box>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="broadcastAddress" destination="Vtg-Z5-ycO" id="H45-hC-XAS"/>
+                        <outlet property="broadcastPort" destination="XyG-Yx-odG" id="tW5-HD-K7W"/>
+                        <outlet property="errorLabel" destination="GMF-SH-Cma" id="yKi-Rz-Njx"/>
+                        <outlet property="tcpAddress" destination="AH4-CP-Tn7" id="Of5-iF-TtG"/>
+                        <outlet property="tcpPort" destination="gPi-1n-fqM" id="JuF-z5-c7U"/>
+                        <outlet property="udpAddress" destination="Wbg-SC-ybK" id="re7-Al-Qdp"/>
+                        <outlet property="udpPort" destination="TLl-hl-ztV" id="CZ4-he-GWH"/>
+                        <segue destination="XfG-lQ-9wD" kind="show" identifier="ProxyVC" id="lGt-cf-OYG"/>
+                    </connections>
+                </viewController>
+                <customObject id="e8z-bf-Qpz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-440.5" y="307.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="turn" width="1305" height="1361"/>
+    </resources>
 </document>

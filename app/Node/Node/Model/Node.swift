@@ -11,10 +11,10 @@ import Foundation
 class Node {
     
     //MARK: - Variable declarations
-    private(set) static var name = "No name has been set."
-    private(set) static var address = "No address specified."
+    private(set) static var name = ""
+    private(set) static var address = ""
     private(set) static var port = 0
-    private(set) static var payload = "No current payload set."
+    private(set) static var payload = ""
     private(set) static var connections = [(String,Int)]()
     
     
@@ -40,6 +40,10 @@ class Node {
     static func addConnection(address: String, port: Int) {
         for (first,second) in connections {
             if first == address && second == port {
+                return
+            }
+            
+            if address == Node.address && port == Node.port {
                 return
             }
         }

@@ -11,10 +11,9 @@ import Foundation
 class Serializer {
     
     //Generates a Data object from a valid JSON
-    static func generateData(from obj: Any) -> Data?{
+    static func data(from obj: [String:Any]) -> Data?{
         
         do {
-            print(JSONSerialization.isValidJSONObject(obj))
             let data = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
             return data
         } catch {
@@ -26,12 +25,11 @@ class Serializer {
     }
     
     //Generate a valid JSON from a Data object
-    static func generateJSON(from data: Data) -> Any? {
+    static func json(from data: Data) -> [String:Any]? {
         
         do {
-            print(JSONSerialization.isValidJSONObject(data))
             let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-            return json
+            return json as? [String:Any]
         } catch {
             print("Error at function: \(#function)")
             print(error)

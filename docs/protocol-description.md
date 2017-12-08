@@ -18,7 +18,7 @@ Note that for simplicity, the structure presented below is represented as a JSON
     "Options"  : [
                     {
                     "Option" : "< SORTED | FILTERED >",
-                    "Value"  : "< Ascending | Descending | "<Sequence>" >"
+                    "Value"  : "< Ascending | Descending | <Filter_Sequence> >"
                     }
                  ],
     "Format"   : "< JSON | XML >"

@@ -1,62 +1,60 @@
-//: Playground - noun: a place where people can play
-
 import Cocoa
 
-class Serializer {
+func xml(from response: String, and payload: [String]) -> String {
+    let xmlRoot = XMLElement(name: "xml")
+    let xmlDocument = XMLDocument(rootElement: xmlRoot)
     
-    //Generates a Data object from a valid JSON
-    static func generateData(from obj: Any) -> Data?{
-        
-        do {
-            print(JSONSerialization.isValidJSONObject(obj))
-            let data = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
-            return data
-        } catch {
-            print("Error at function: \(#function)")
-            print(error)
-        }
-        
-        return nil
+    let responseNode = XMLElement(name: "response", stringValue: response)
+    xmlRoot.addChild(responseNode)
+    
+    let payloadNode = XMLElement(name: "payload")
+    xmlRoot.addChild(payloadNode)
+    
+    for element in payload {
+        let xmlElement = XMLElement(name: "value", stringValue: element)
+        payloadNode.addChild(xmlElement)
     }
     
-    //Generate a valid JSON from a Data object
-    static func generateJSON(from data: Data) -> Any? {
-        
-        do {
-            print(JSONSerialization.isValidJSONObject(data))
-            let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-            return json
-        } catch {
-            print("Error at function: \(#function)")
-            print(error)
-        }
-        
-        return nil
-    }
+    return xmlDocument.xmlString
 }
 
-class Package {
-    
-    private(set) var data = [String:Any]()
-    
-    init(with options: [String:Any]) {
-        for (key,value) in options {
-            data[key] = value
+
+
+let response = "Response"
+let payload = ["Hello","My name is Jafar", "I come from afar", "Allahu Akbar!"]
+
+let xmlString = xml(from: response, and: payload)
+let validXMLString = xmlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+
+let xmlURL = URL(string: validXMLString!)
+
+
+
+func process(string: String) {
+    do {
+        let xmlDocument = try XMLDocument(xmlString: string, options: .documentValidate)
+        let rootNode = xmlDocument.rootElement()!
+        let responseNode = rootNode.elements(forName: "response")
+        
+        let processNodes = rootNode.elements(forName: "payload")
+        let valueNodes = processNodes.first?.elements(forName: "value")
+        
+        for value in valueNodes! {
+            print(value.stringValue)
         }
-    }
+        
     
-    func addOption(title: String, contents: Any) {
-        data[title] = contents
-    }
-    
-    func removeOption(with title: String) {
-        data.removeValue(forKey: title)
+        
+        
+    } catch {
+        print(error)
     }
     
 }
 
-let json = Package(with: ["Address":"127.0.0.1","Port":9001])
-JSONSerialization.isValidJSONObject(json.data)
+process(string: xmlString)
+
+
 
 
 

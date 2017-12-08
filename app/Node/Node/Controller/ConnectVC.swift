@@ -17,9 +17,6 @@ class ConnectVC: NSViewController {
     @IBOutlet weak var portTextfield: CustomTextfield!
     @IBOutlet weak var errorLabel: NSTextField!
     
-    //MARK: - Variable declarations
-    var tcpSocket: Socket?
-    
     //MARK: - View lifecycle
     override func viewDidAppear() {
         setupWindow()
@@ -28,26 +25,27 @@ class ConnectVC: NSViewController {
     //MARK: - User action implementations
     @IBAction func connectBtnPressed(_ sender: Any) {
         
-        guard let port = Int(portTextfield.stringValue) else {
-            displayError(with: "Invalid port")
-            return
-        }
-        
-        Node.setName(with: nameTextfield.stringValue)
-        Node.setAddress(with: addressTextfield.stringValue)
-        Node.setPort(with: port)
-        
-        if Node.name.count == 0 || Node.name.first == " " {
-            displayError(with: "Invalid name")
-            return
-        }
-        
-        if Node.address.count == 0 || Node.address.first == " " {
+        guard let address = Validator.validateIP(value: addressTextfield.stringValue) else {
             displayError(with: "Invalid address")
             return
         }
         
-        tcpConnect(address: Node.address, port: Node.port)
+        guard let port = Validator.validatePort(value: portTextfield.stringValue) else {
+            displayError(with: "Invalid port")
+            return
+        }
+        
+        if nameTextfield.stringValue.count == 0 || nameTextfield.stringValue.first == " " {
+            displayError(with: "Invalid name")
+            return
+        }
+        
+        Node.setName(with: nameTextfield.stringValue)
+        Node.setAddress(with: address)
+        Node.setPort(with: port)
+        
+        let identifier = NSStoryboardSegue.Identifier("NodeVC")
+        performSegue(withIdentifier: identifier, sender: self)
         
     }
     
@@ -56,23 +54,8 @@ class ConnectVC: NSViewController {
         errorLabel.stringValue = message
     }
     
-    func tcpConnect(address: String, port: Int) {
-        
-        do {
-            tcpSocket = try Socket.create(family: .inet, type: .stream, proto: .tcp)
-            let identifier = NSStoryboardSegue.Identifier("NodeVC")
-            performSegue(withIdentifier: identifier, sender: self)
-        } catch {
-            displayError(with: "Could not create node.")
-            print("Error at function: \(#function)")
-            print(error)
-        }
-        
-    }
-    
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         let destination = segue.destinationController as! NodeVC
-        destination.tcpSocket = self.tcpSocket
         destination.previousVC = self
     }
     

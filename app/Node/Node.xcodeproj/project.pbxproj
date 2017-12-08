@@ -16,12 +16,16 @@
 		5229ADEE1FCF58A800EF2F67 /* ConnectionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5229ADED1FCF58A800EF2F67 /* ConnectionsVC.swift */; };
 		5229ADF01FCF58BD00EF2F67 /* CustomTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5229ADEF1FCF58BD00EF2F67 /* CustomTextfield.swift */; };
 		52A973EF1FD08B890088570B /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A973EE1FD08B890088570B /* Serializer.swift */; };
-		52A973F11FD08D400088570B /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A973F01FD08D400088570B /* Package.swift */; };
 		52A973F31FD0CD5E0088570B /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A973F21FD0CD5E0088570B /* Node.swift */; };
 		52A973F51FD0D5DB0088570B /* AddConnectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A973F41FD0D5DB0088570B /* AddConnectionVC.swift */; };
 		52A973F71FD0D5E40088570B /* RemoveConnectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A973F61FD0D5E40088570B /* RemoveConnectionVC.swift */; };
 		52A973FA1FD0D7A00088570B /* ConnectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A973F91FD0D7A00088570B /* ConnectionDataSource.swift */; };
 		52A973FC1FD0D7B80088570B /* ConnectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A973FB1FD0D7B80088570B /* ConnectionDelegate.swift */; };
+		52E7A5441FD8791B002CC808 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E7A5431FD8791B002CC808 /* Validator.swift */; };
+		52E7A5471FD87B09002CC808 /* DiscoveryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E7A5461FD87B09002CC808 /* DiscoveryRequest.swift */; };
+		52E7A5491FD87B12002CC808 /* DiscoveryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E7A5481FD87B12002CC808 /* DiscoveryResponse.swift */; };
+		52E7A54F1FD88CC9002CC808 /* NodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E7A54E1FD88CC9002CC808 /* NodeRequest.swift */; };
+		52E7A5511FD88D7E002CC808 /* NodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E7A5501FD88D7E002CC808 /* NodeResponse.swift */; };
 		F2E15772A8EC8744556F504A /* Pods_Node.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EA98731B3E5ED2F52297E3F /* Pods_Node.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,12 +44,16 @@
 		5229ADED1FCF58A800EF2F67 /* ConnectionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsVC.swift; sourceTree = "<group>"; };
 		5229ADEF1FCF58BD00EF2F67 /* CustomTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfield.swift; sourceTree = "<group>"; };
 		52A973EE1FD08B890088570B /* Serializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializer.swift; sourceTree = "<group>"; };
-		52A973F01FD08D400088570B /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		52A973F21FD0CD5E0088570B /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		52A973F41FD0D5DB0088570B /* AddConnectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConnectionVC.swift; sourceTree = "<group>"; };
 		52A973F61FD0D5E40088570B /* RemoveConnectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveConnectionVC.swift; sourceTree = "<group>"; };
 		52A973F91FD0D7A00088570B /* ConnectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDataSource.swift; sourceTree = "<group>"; };
 		52A973FB1FD0D7B80088570B /* ConnectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDelegate.swift; sourceTree = "<group>"; };
+		52E7A5431FD8791B002CC808 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		52E7A5461FD87B09002CC808 /* DiscoveryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryRequest.swift; sourceTree = "<group>"; };
+		52E7A5481FD87B12002CC808 /* DiscoveryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryResponse.swift; sourceTree = "<group>"; };
+		52E7A54E1FD88CC9002CC808 /* NodeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeRequest.swift; sourceTree = "<group>"; };
+		52E7A5501FD88D7E002CC808 /* NodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeResponse.swift; sourceTree = "<group>"; };
 		5EA98731B3E5ED2F52297E3F /* Pods_Node.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Node.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -97,9 +105,9 @@
 		5229ADE61FCF585300EF2F67 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				52E7A5521FD88D89002CC808 /* Packages */,
+				52E7A5451FD87A8F002CC808 /* Utils */,
 				52A973F81FD0D77E0088570B /* ConnectionsTable */,
-				52A973EE1FD08B890088570B /* Serializer.swift */,
-				52A973F01FD08D400088570B /* Package.swift */,
 				52A973F21FD0CD5E0088570B /* Node.swift */,
 			);
 			path = Model;
@@ -133,6 +141,26 @@
 				52A973FB1FD0D7B80088570B /* ConnectionDelegate.swift */,
 			);
 			path = ConnectionsTable;
+			sourceTree = "<group>";
+		};
+		52E7A5451FD87A8F002CC808 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				52A973EE1FD08B890088570B /* Serializer.swift */,
+				52E7A5431FD8791B002CC808 /* Validator.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		52E7A5521FD88D89002CC808 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				52E7A5461FD87B09002CC808 /* DiscoveryRequest.swift */,
+				52E7A5481FD87B12002CC808 /* DiscoveryResponse.swift */,
+				52E7A54E1FD88CC9002CC808 /* NodeRequest.swift */,
+				52E7A5501FD88D7E002CC808 /* NodeResponse.swift */,
+			);
+			path = Packages;
 			sourceTree = "<group>";
 		};
 		68BA640C60870386824FBC27 /* Pods */ = {
@@ -280,15 +308,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52E7A5471FD87B09002CC808 /* DiscoveryRequest.swift in Sources */,
 				52A973F51FD0D5DB0088570B /* AddConnectionVC.swift in Sources */,
 				52A973FC1FD0D7B80088570B /* ConnectionDelegate.swift in Sources */,
 				5229ADBD1FCF2B3300EF2F67 /* ConnectVC.swift in Sources */,
 				5229ADEC1FCF589500EF2F67 /* PayloadVC.swift in Sources */,
+				52E7A5441FD8791B002CC808 /* Validator.swift in Sources */,
 				5229ADF01FCF58BD00EF2F67 /* CustomTextfield.swift in Sources */,
 				52A973F31FD0CD5E0088570B /* Node.swift in Sources */,
 				52A973EF1FD08B890088570B /* Serializer.swift in Sources */,
 				52A973F71FD0D5E40088570B /* RemoveConnectionVC.swift in Sources */,
-				52A973F11FD08D400088570B /* Package.swift in Sources */,
+				52E7A5491FD87B12002CC808 /* DiscoveryResponse.swift in Sources */,
+				52E7A54F1FD88CC9002CC808 /* NodeRequest.swift in Sources */,
+				52E7A5511FD88D7E002CC808 /* NodeResponse.swift in Sources */,
 				52A973FA1FD0D7A00088570B /* ConnectionDataSource.swift in Sources */,
 				5229ADEA1FCF588700EF2F67 /* NodeVC.swift in Sources */,
 				5229ADEE1FCF58A800EF2F67 /* ConnectionsVC.swift in Sources */,

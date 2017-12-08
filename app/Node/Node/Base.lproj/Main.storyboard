@@ -699,7 +699,7 @@
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mb1-lH-e3C" customClass="CustomTextfield" customModule="Node" customModuleProvider="target">
                                             <rect key="frame" x="50" y="124" width="212" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Port Number" drawsBackground="YES" id="JTO-AL-hio">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="9001" placeholderString="Port Number" drawsBackground="YES" id="JTO-AL-hio">
                                                 <font key="font" size="18" name="Avenir-Book"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -717,7 +717,7 @@
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VqE-nk-hJm" customClass="CustomTextfield" customModule="Node" customModuleProvider="target">
                                             <rect key="frame" x="50" y="164" width="212" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="IP Address" drawsBackground="YES" id="Dc1-Bb-nnF">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="127.0.0.1" placeholderString="IP Address" drawsBackground="YES" id="Dc1-Bb-nnF">
                                                 <font key="font" size="18" name="Avenir-Book"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -726,7 +726,7 @@
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pEn-Qd-PfC" customClass="CustomTextfield" customModule="Node" customModuleProvider="target">
                                             <rect key="frame" x="50" y="204" width="212" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Node Name" drawsBackground="YES" id="8HV-B1-iit">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="Node 1" placeholderString="Node Name" drawsBackground="YES" id="8HV-B1-iit">
                                                 <font key="font" size="18" name="Avenir-Book"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

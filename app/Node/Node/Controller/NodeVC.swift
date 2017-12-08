@@ -16,6 +16,8 @@ class NodeVC: NSViewController {
     @IBOutlet weak var addressTextfield: NSTextField!
     @IBOutlet weak var portTextfield: NSTextField!
     
+    
+    
     //MARK: - Variable declarations
     var previousVC: ConnectVC!
     
@@ -25,12 +27,26 @@ class NodeVC: NSViewController {
     var tcpListening = true
     var udpListening = true
     
-    let udpPort = 9999
+    
     
     //MARK: - View lifecycle
     override func viewDidLoad() {
-        udpSocket = try! Socket.create(family: .inet, type: .datagram, proto: .udp)
-        udpInitiate()
+        
+        initiate()
+        
+        DispatchQueue.global().async {
+            while self.udpListening {
+                self.udpListen()
+            }
+        }
+        
+        DispatchQueue.global().async {
+            while self.tcpListening {
+                self.tcpListen()
+            }
+        }
+        
+        
     }
     
     override func viewDidAppear() {
@@ -38,75 +54,133 @@ class NodeVC: NSViewController {
         setupWindow()
     }
     
-    //MARK: - TCP functionalities
-    func tcpInitiate() {
+    
+    func initiate() {
+        do {
+            tcpSocket = try Socket.create(family: .inet, type: .stream, proto: .tcp)
+            try tcpSocket?.listen(on: Node.port)
+            udpSocket = try Socket.create(family: .inet, type: .datagram, proto: .udp)
+        } catch {
+            print(error)
+        }
+    }
+   
+    
+    func udpListen() {
+        
+        do {
+            var receivedData = Data()
+            let _ = try udpSocket?.listen(forMessage: &receivedData, on: 9999)
+            
+            let discoveryRequest = DiscoveryRequest(from: receivedData)
+            
+            let discoveryResponse = DiscoveryResponse()
+            discoveryResponse.setAddress(Node.address)
+            discoveryResponse.setPort(Node.port)
+            discoveryResponse.setConnections(Node.connections)
+            
+            guard let data = Serializer.data(from: discoveryResponse.toJSON()) else {
+                print("Could not serialize Discovery Response package")
+                return
+            }
+            
+            let address = Socket.createAddress(for: discoveryRequest.address, on: Int32(discoveryRequest.port))
+            let _ = try udpSocket?.write(from: data, to: address!)
+            
+        } catch {
+            print(error)
+        }
         
     }
     
     func tcpListen() {
         
         do {
-            try tcpSocket?.listen(on: Node.port)
-            let proxy = try tcpSocket?.acceptClientConnection()
-            
-            tcpRead(from: proxy!)
+            let client = try tcpSocket?.acceptClientConnection()
+            print("CONNECTED")
+            self.tcpRead(from: client!)
             
         } catch {
-            print("Error at function: \(#function)")
             print(error)
         }
         
     }
     
     func tcpRead(from socket: Socket) {
-        var tcpReceiver = Data()
-        
         do {
-            let result = try socket.read(into: &tcpReceiver)
-            print(result)
-            print(tcpReceiver)
+            var receivedData = Data()
+            let _ = try socket.read(into: &receivedData)
+            
+            let nodeRequest = NodeRequest(from: receivedData)
+            print(nodeRequest.command)
+            print(nodeRequest.isMaven)
+            self.process(request: nodeRequest, for: socket)
             
         } catch {
-            print("Error at function: \(#function)")
             print(error)
-        }
-        
-        
-        
-    }
-    
-    
-    //MARK: - UDP functionalities
-    func udpInitiate() {
-        DispatchQueue.global().async {
-            while self.udpListening == true {
-                self.udpListen()
-            }
         }
     }
     
-    func udpListen() {
+    func process(request: NodeRequest, for socket: Socket) {
         
-        var udpReceiver = Data()
+        var payload = [Node.payload]
+        
+        if request.isMaven {
+            for connection in Node.connections {
+                DispatchQueue.global().async {
+                    payload.append(contentsOf: self.obtainData(from: connection)!)
+                }
+            }
+        }
         
         do {
-            let result = try self.udpSocket!.listen(forMessage: &udpReceiver, on: self.udpPort)
-            let package = Package(with: ["Address":Node.address, "Port":Node.port])
-            package.addConnections(from: Node.connections)
+            let nodeResponse = NodeResponse(command: "Response", payload: payload)
             
-            if let data = Serializer.generateData(from: package.data) {
-               try udpSocket?.write(from: data, to: result.address!)
+            guard let data = Serializer.data(from: nodeResponse.toJSON()) else {
+                print("Could not serialize Node Response")
+                return
             }
             
+            let _ = try socket.write(from: data)
         } catch {
-            print("Error at function: \(#function)")
             print(error)
         }
         
+    }
+    
+    func obtainData(from connection: (String,Int)) -> [String]? {
+        
+        do {
+            
+            let socket = try Socket.create()
+            try socket.connect(to: connection.0, port: Int32(connection.1))
+            
+            let nodeRequest = NodeRequest(command: "GET", isMaven: false)
+            guard let data = Serializer.data(from: nodeRequest.toJSON()) else {
+                print("ERROR 2")
+                return nil
+            }
+            
+            print("EXECUTED")
+            
+            let _ = try socket.write(from: data)
+            
+            var responseData = Data()
+            let _ = try socket.read(into: &responseData)
+            
+            let response = NodeResponse(from: responseData)
+            socket.close()
+            
+            print(response.payload)
+            
+            return response.payload
+        } catch {
+            print(error)
+        }
+        return nil
     }
     
     //MARK: - UI-Related
-    
     func setupViews() {
         previousVC!.dismiss(self)
         previousVC.view.window?.close()
