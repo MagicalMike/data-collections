@@ -12,9 +12,7 @@ Visit [Protocol Description](https://github.com/MagicalMike/data-collections/blo
 
 ## Previews
 
-<img src="https://github.com/MagicalMike/data-collections/blob/master/res/client.png" alt="Client" width="30%"/>
-<img src="https://github.com/MagicalMike/data-collections/blob/master/res/proxy.png" alt="Proxy" width="30%"/>
-<img src="https://github.com/MagicalMike/data-collections/blob/master/res/node.png" alt="Node" width="30%"/>
+<img src="https://github.com/MagicalMike/data-collections/blob/master/res/client.png" alt="Client" width="30%"/><img src="https://github.com/MagicalMike/data-collections/blob/master/res/proxy.png" alt="Proxy" width="30%"/><img src="https://github.com/MagicalMike/data-collections/blob/master/res/node.png" alt="Node" width="30%"/>
 
 
 ## Current Progress
@@ -33,7 +31,6 @@ Visit [Protocol Description](https://github.com/MagicalMike/data-collections/blo
 - [x] Adding TCP request-response communication between proxy and nodes;
 - [x] Processing additional options for sorting and filtering payload collection
 - [x] Adding functionalities for JSON and XML response
-- [x]
 
 ### Client Related:
 - [x] Implementing functionalities for connecting to proxy and sending requests;

@@ -1,52 +1,75 @@
 # Protocol Description
 
 ## Overview
-The project uses 3 communication protocols for its internal functioning.
-The first protocol is used for Client - Proxy data transfer, and specifies the command, contents, as well as other options
-for how the data should be processed or sent. There is also a Proxy - Node protocol for UDP discovery and a Proxy - Node or Node - Node protocol for TCP transfers.
+The project uses a 3-pair request-response communication protocol for its internal functioning.
+The pairs are used for Client-Proxy data transfer, Proxy-Node UDP discovery and and Proxy-Node and Node-Node data transfers.
 
 ## Structure
-The examples below describe the structure of all three communication protocols.
+The examples below describe the structure of all three request-response communication protocols.
 Note that for simplicity, the structure presented below is represented as a JSON object. An XML representation will not be shown, although the client can choose his desired format.
 
-#### Client - Proxy
+#### Client [Data Request]
 
 ```json
 {
-    "Command"  : "< GET | RESPONSE | ERROR >",
-    "Payload"  : [ "<Content>" ],
+    "Command"  : "< GET >",
     "Options"  : [
                     {
-                    "Option" : "< SORTED | FILTERED >",
-                    "Value"  : "< Ascending | Descending | <Filter_Sequence> >"
+                        "Option" : "< SORTED | FILTERED >",
+                        "Value"  : "< Ascending | Descending | Filter_Sequence >"
                     }
                  ],
     "Format"   : "< JSON | XML >"
 }
 ```
 
-#### Proxy - Node [UDP Discovery]
+#### Client [Data Response]
 
 ```json
 {
-    "Address"      : "<Address>",
-    "Port"         : "<Port>",
-    "Connections"  : [
-                        {
-                        "Address" : "<Address>",
-                        "Port"    : "<Port>"
-                        }
-                     ]
+"Command" : "< RESPONSE | ERROR >",
+"Payload" : [ "<content>" ]
 }
 ```
 
-#### Proxy - Node | Node - Node [TCP Communication]
+#### UDP [Discovery Request]
 
 ```json
 {
-    "Command"  : "< GET | RESPONSE | ERROR >",
-    "Payload"  : [ "<Content>" ],
+    "Address" : "<Address>",
+    "Port"    : "<Port>"
+}
+```
+
+#### UDP [Discovery Response]
+
+```json
+{
+"Address"      : "<Address>",
+"Port"         : "<Port>",
+"Connections"  : [
+                    {
+                        "Address" : "<Address>",
+                        "Port"    : "<Port>"
+                    }
+                 ]
+}
+```
+
+#### Node [Data Request]
+
+```json
+{
+    "Command"  : "< GET >",
     "Maven"    : "< TRUE | FALSE >"
+}
+```
+#### Node [Data Response]
+
+```json
+{
+"Command" : "< REQUEST | RESPONSE >",
+"Payload" : [ "< contents >" ]
 }
 ```
 
