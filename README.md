@@ -12,7 +12,7 @@ Visit [Protocol Description](https://github.com/MagicalMike/data-collections/blo
 
 ## Previews
 
-<img src="https://github.com/MagicalMike/data-collections/blob/master/res/example.png" alt="Example" width="30%"/>
+<img src="https://github.com/MagicalMike/data-collections/blob/master/res/example.png" alt="Example" width="100%"/>
 
 
 ## Current Progress
